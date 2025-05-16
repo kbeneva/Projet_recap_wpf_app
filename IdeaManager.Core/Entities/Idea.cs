@@ -12,7 +12,7 @@ public class Idea
 
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-    public IdeaStatus Status { get; set; } = IdeaStatus.Pending;  // Enum IdeaStatus
+    public IdeaStatus Status { get; set; } = IdeaStatus.Pending;
 
     public int VoteCount { get; set; } = 0;
 
@@ -21,4 +21,6 @@ public class Idea
 
     public int? ProjectId { get; set; }  // idée validée -> projet
     public Project? Project { get; set; }
+    public bool IsDecisionMade => Status == IdeaStatus.Approved || Status == IdeaStatus.Rejected;
+
 }
